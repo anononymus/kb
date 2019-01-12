@@ -8,11 +8,15 @@
   <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<script src="<?php echo e(asset('js/app.js')); ?>" type="text/js"></script>
+  <script src="<?php echo e(asset('js/jquery-3.3.1.min.js')); ?>" ></script>
+ <!-- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+  <script src="<?php echo e(asset('js/jquery-1.9.1.min.js')); ?>"></script>
+ 
   <div class="container">
     <?php echo $__env->yieldContent('content'); ?>
   </div>
-  <script src="<?php echo e(asset('js/app.js')); ?>" type="text/js"></script>
-  <script src="<?php echo e(asset('js/jquery-3.3.1.min.js')); ?>" type="text/js"></script>
+  
   
 </body>
 </html>

@@ -28,25 +28,30 @@ display:none;
 
 }
 </style>
-<script src="{{ asset('js/jquery-3.3.1.min.js') }}" type="text/js"></script>
-@section('script')
+
 <script type="text/javascript">
 
 
-$(document).ready(function(){
-    $("#add_ques").click(function(){
-        $("#form1").toggle();
-    });
+$(document).ready(function () {
+  //your code here
+  $('#add_ques').on('click', function () {
+  $("#form1").toggle();
+  $("#ques").show();
+});
 });
 
+
 </script>
-@endsection
+
+
 <!--<div class="row">
   <div class="col-md-6 col-md-offset-3">
     <div class="panel-heading">-->
         <span>
             Story for Comprehenstion
         </span>
+        <br>
+        <br>
         <blockquote class="pull-right">
       <!-- <span class="pull-right">
         {!!$kb->id!!}
@@ -64,12 +69,22 @@ $(document).ready(function(){
 <h3>Questions</h3>
 
 <button class="btn btn-primary"  id="add_ques" type="button">Add Question</button>
-
-<form id="form1">
+<br>
+<form id="#form1" method="post" action="{{ route('kb.update', $kb->id) }}" >
+        @method('PATCH')
+        @csrf
+        <div class="form-group" id="ques" style="display:none">
+          <label for="name">Submit Question from the above passage:</label>
+          <input type="text" class="form-control" name="ques"  />
+          <button type="button" id="submit">Submit</button>
+        </div>
+</form>
+<!--<form id="form1">
   <b>First Name:</b> <input type="text" name="firstName">
   <b>Last Name: </b><input type="text" name="lastName">
    <button type="button" id="submit">Submit</button>
 </form>
+-->
 
 
 @endsection

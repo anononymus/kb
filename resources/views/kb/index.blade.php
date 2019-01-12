@@ -104,13 +104,15 @@ $('.read-more-hide').on('click', function(e) {
             <td>{{$kb_main->created_at}}</td>
             <td>{{$kb_main->updated_at}}</td>
             <td><a href="{{ route('kb.edit',$kb_main->id)}}" class="btn btn-primary">Edit</a></td>
-            <td>
+         <!--
+             <td>
                 <form action="{{ route('kb.destroy', $kb_main->id)}}" method="post">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
+                  <button class="btn btn-danger" type="submit">Delete</button> 
                 </form>
             </td>
+            -->
         </tr>
         @endforeach
     </tbody>

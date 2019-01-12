@@ -8,11 +8,15 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<script src="{{ asset('js/app.js') }}" type="text/js"></script>
+  <script src="{{ asset('js/jquery-3.3.1.min.js') }}" ></script>
+ <!-- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+  <script src="{{ asset('js/jquery-1.9.1.min.js') }}"></script>
+ 
   <div class="container">
     @yield('content')
   </div>
-  <script src="{{ asset('js/app.js') }}" type="text/js"></script>
-  <script src="{{ asset('js/jquery-3.3.1.min.js') }}" type="text/js"></script>
+  
   
 </body>
 </html>

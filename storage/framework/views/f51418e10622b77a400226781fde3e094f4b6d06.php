@@ -103,13 +103,15 @@ $('.read-more-hide').on('click', function(e) {
             <td><?php echo e($kb_main->created_at); ?></td>
             <td><?php echo e($kb_main->updated_at); ?></td>
             <td><a href="<?php echo e(route('kb.edit',$kb_main->id)); ?>" class="btn btn-primary">Edit</a></td>
-            <td>
+         <!--
+             <td>
                 <form action="<?php echo e(route('kb.destroy', $kb_main->id)); ?>" method="post">
                   <?php echo csrf_field(); ?>
                   <?php echo method_field('DELETE'); ?>
-                  <button class="btn btn-danger" type="submit">Delete</button>
+                  <button class="btn btn-danger" type="submit">Delete</button> 
                 </form>
             </td>
+            -->
         </tr>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </tbody>
