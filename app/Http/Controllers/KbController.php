@@ -58,6 +58,26 @@ class KbController extends Controller
           return redirect('/kb/create')->with('success', 'Story has been added');
     }
 
+    public function add_ques(Request $request)
+    {
+        //
+        $request->validate([
+            //'story_title'=> 'required',
+            'question'=>'required'
+            //'share_price'=> 'required|integer',
+            //'share_qty' => 'required|integer'
+          ]);
+          $kb_mains = new questions([
+            'question' => $request->get('question'),
+            'para_id' => $request->get('id')
+            //'share_price'=> $request->get('share_price'),
+            //'share_qty'=> $request->get('share_qty')
+          ]);
+          $kb_mains->save();
+          return redirect('/kb')->with('Success', 'Question has been added');
+        //  return view('kb.show', compact('kb'));
+    }
+
     /**
      * Display the specified resource.
      *

@@ -70,21 +70,19 @@ $(document).ready(function () {
 
 <button class="btn btn-primary"  id="add_ques" type="button">Add Question</button>
 <br>
-<form id="#form1" method="post" action="<?php echo e(route('kb.update', $kb->id)); ?>" >
+
+<!--<form id="#form1" method="post" action="<?php echo e(action('KbController@add_ques')); ?>" >-->
+
         <?php echo method_field('PATCH'); ?>
         <?php echo csrf_field(); ?>
         <div class="form-group" id="ques" style="display:none">
+        <form id="#form1" method="post" action="<?php echo e(route('kb.add_ques')); ?>" >
           <label for="name">Submit Question from the above passage:</label>
-          <input type="text" class="form-control" name="ques"  />
-          <button type="button" id="submit">Submit</button>
+          <input type="text" class="form-control" name="question" id="question"/><br>
+          <button class="btn btn-primary" type="submit" id="submit">Submit</button>
         </div>
 </form>
-<!--<form id="form1">
-  <b>First Name:</b> <input type="text" name="firstName">
-  <b>Last Name: </b><input type="text" name="lastName">
-   <button type="button" id="submit">Submit</button>
-</form>
--->
+
 
 
 <?php $__env->stopSection(); ?>

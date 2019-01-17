@@ -13,7 +13,7 @@ class CreateQuestiionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('questiions', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
             $table->text('question')->charset('utf8');
             $table->integer('para_id');

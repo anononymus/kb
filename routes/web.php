@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::resource('kb', 'KbController');
+
+Route::post('kb/{id}', 'KbController@add_ques')->name('kb.add_ques');
+
