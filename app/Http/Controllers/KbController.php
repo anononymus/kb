@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\kb_main;
+use App\questions;
+
 
 class KbController extends Controller
 {
@@ -58,7 +60,7 @@ class KbController extends Controller
           return redirect('/kb/create')->with('success', 'Story has been added');
     }
 
-    public function add_ques(Request $request)
+    public function add_ques(Request $request, $id)
     {
         //
         $request->validate([
@@ -68,14 +70,18 @@ class KbController extends Controller
             //'share_qty' => 'required|integer'
           ]);
           $kb_mains = new questions([
-            'question' => $request->get('question'),
-            'para_id' => $request->get('id')
+           'question' => $request->get('question'),
+           //'question' => 'test',
+            'para_id' => $id
             //'share_price'=> $request->get('share_price'),
             //'share_qty'=> $request->get('share_qty')
           ]);
           $kb_mains->save();
-          return redirect('/kb')->with('Success', 'Question has been added');
-        //  return view('kb.show', compact('kb'));
+
+          //return redirect()->back()->with('Success', 'Question has been added');
+          return redirect()->route('kb.show', ['id' => $id])->with('Success', 'Question has been added');
+          //$kb = kb_main::findOrFail($id);
+          //return view('kb.show', compact($id))->with('Success', 'Question has been added');
     }
 
     /**
@@ -88,9 +94,41 @@ class KbController extends Controller
     {
         //
         $kb = kb_main::findOrFail($id);
-         return view('kb.show', compact('kb'));
+        return view('kb.show', compact('kb'));
         //return $id;
     }
+    
+   /*public function show($request, $id)
+    {
+        //
+        if($request->isMethod('GET'))
+        {
+                //$kb = kb_main::findOrFail($request->get('id'));
+                $kb = kb_main::findOrFail($id);
+                return view('kb.show', compact('kb'));
+        //return $id;
+        }
+        if($request->isMethod('POST'))
+        {
+            $request->validate([
+                //'story_title'=> 'required',
+                'question'=>'required'
+                //'share_price'=> 'required|integer',
+                //'share_qty' => 'required|integer'
+              ]);
+              $kb_mains = new questions([
+                'question' => $request->get('question'),
+                'para_id' => $request->get('id')
+                //'share_price'=> $request->get('share_price'),
+                //'share_qty'=> $request->get('share_qty')
+              ]);
+              $kb_mains->save();
+              return redirect('/kb')->with('Success', 'Question has been added');
+           //  return view('kb.show', compact('kb'));
+
+        }
+    }
+*/
 
     /**
      * Show the form for editing the specified resource.

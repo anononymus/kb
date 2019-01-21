@@ -17,5 +17,8 @@ Route::get('/', function () {
 
 Route::resource('kb', 'KbController');
 
-Route::post('kb/{id}', 'KbController@add_ques')->name('kb.add_ques');
+//Route::post('kb/{kb}','KbController@show')->name('kb.show');
+
+Route::Post('kb/{kb}/', 'KbController@add_ques')->name('kb.add_ques');
+Route::get('kb/question/{id}', 'KbController@view_ques')->name('kb.view_ques');
 
